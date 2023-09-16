@@ -44,6 +44,20 @@ processResources {
     }
 }
 
+tasks.register('getMajorVersion') {
+    def s = project.minecraft_version.split('\\.')[1]
+    println s
+}
+
+tasks.register('getMinorVersion') {
+    try {
+        def v = project.minecraft_version.split('\\.')[2]
+        println v
+    }catch(Exception){
+        println '0'
+    }
+}
+
 def targetJavaVersion = 17
 tasks.withType(JavaCompile).configureEach {
     // ensure that the encoding is set to UTF-8, no matter what the system default is

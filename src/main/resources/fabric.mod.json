@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "airprinter",
+  "version": "${version}",
+  "name": "LitematicaAirPrinter",
+  "description": "Printer Addon For Litematica That Can Place Blocks On Air Blocks",
+  "authors": [
+    "rockerle"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/airprinter/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "org.rockerle.airprinter.airprinter.client.AirprinterClient"
+    ]
+  },
+  "mixins": [
+    "airprinter.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.21",
+    "fabric": "*",
+    "minecraft": "1.20"
+  }
+}

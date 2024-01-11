@@ -18,6 +18,9 @@ repositories {
             includeGroup "curse.maven"
         }
     }
+    maven {
+        url = "https://api.modrinth.com/maven"
+    }
 }
 
 dependencies {
@@ -28,9 +31,10 @@ dependencies {
 
 
     //malilib
-    modImplementation("curse.maven:malilib-303119:4623483")
+    //modImplementation("curse.maven:malilib-303119:4623483")
+    modImplementation("maven.modrinth:GcWjdA9I:66WY7ZfT")
     //litematica
-    modImplementation("curse.maven:litematica-308892:4626718")
+    modImplementation("curse.maven:litematica-308892:4946471")
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation("net.fabricmc.fabric-api:fabric-api:${project.fabric_version}")
 }

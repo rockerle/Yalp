@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '1.3-SNAPSHOT'
+    id 'fabric-loom' version '1.7-SNAPSHOT'
     id 'maven-publish'
 }
 
@@ -13,12 +13,6 @@ repositories {
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html
     // for more information about repositories.
     maven {
-        url "https://cursemaven.com"
-        content {
-            includeGroup "curse.maven"
-        }
-    }
-    maven {
         url = "https://api.modrinth.com/maven"
     }
 }
@@ -31,10 +25,9 @@ dependencies {
 
 
     //malilib
-    //modImplementation("curse.maven:malilib-303119:4623483")
-    modImplementation("maven.modrinth:GcWjdA9I:66WY7ZfT")
+    modImplementation("maven.modrinth:GcWjdA9I:oExLoQk8")
     //litematica
-    modImplementation("curse.maven:litematica-308892:4946471")
+    modImplementation("maven.modrinth:bEpr0Arc:5kAmiBye")
     // Fabric API. This is technically optional, but you probably want it anyway.
     modImplementation("net.fabricmc.fabric-api:fabric-api:${project.fabric_version}")
 }
@@ -62,7 +55,7 @@ tasks.register('getMinorVersion') {
     }
 }
 
-def targetJavaVersion = 17
+def targetJavaVersion = 21
 tasks.withType(JavaCompile).configureEach {
     // ensure that the encoding is set to UTF-8, no matter what the system default is
     // this fixes some edge cases with special characters not displaying correctly

@@ -20,8 +20,8 @@
     "airprinter.mixins.json"
   ],
   "depends": {
-    "fabricloader": ">=0.15.3",
+    "fabricloader": ">=0.15.11",
     "fabric": "*",
-    "minecraft": "1.20.4"
+    "minecraft": ">=1.21"
   }
 }

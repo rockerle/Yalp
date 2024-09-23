@@ -19,6 +19,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
@@ -29,8 +30,10 @@ public class Printer {
     private int range = 3;
     private int blocksPerTick = 1;
     private Direction specificPlacement;
+    private List<BlockPos> placed;
     public Printer(MinecraftClient mcClient){
         this.mc=mcClient;
+        this.placed=new ArrayList<>();
     }
 
 //    print routine
@@ -57,9 +60,12 @@ public class Printer {
 
 //            System.out.println("sending interact packet");
             placeBlock(bP);
+            placed.add(bP);
             }else{
 //                System.out.println("Next closest ");
             }
+        if(mc.player.age%5==0 && !placed.isEmpty())
+            placed.remove(0);
     }
 
     public void reset(){
@@ -163,6 +169,9 @@ public class Printer {
             for(int z=-this.range;z<this.range;z++){
                 for(int y=-this.range;y<this.range;y++){
                     res = mc.player.getBlockPos().add(x,y,z);
+                    if(this.placed.contains(res)){
+                        continue;
+                    }
                     Box schemBox = loadedSchematic.getEclosingBox();
                     if(schemBox==null) {
                         loadedSchematic.toggleRenderEnclosingBox();
